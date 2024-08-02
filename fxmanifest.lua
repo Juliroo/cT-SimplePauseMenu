@@ -4,7 +4,7 @@ lua54 'yes'
 author 'Juliroo'
 
 shared_scripts {
-	'@ox_lib/init.lua',
+    '@ox_lib/init.lua',
 }
 
 client_scripts {
@@ -18,3 +18,5 @@ ui_page {
 files {
     'web/**',
 }
+
+dependency 'ox_lib'
