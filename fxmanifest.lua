@@ -4,7 +4,7 @@ games { 'rdr3', 'gta5' }
 
 author 'Juliroo && Jaareet'
 description 'FiveM Pause Menu'
-version '1.0.0'
+version '1.1.0'
 lua54 'yes'
 ui_page 'web/index.html'
 
