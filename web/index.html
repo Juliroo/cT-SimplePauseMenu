@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    </head>
-    <body>
-        <div id="app" class="back">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="script.js" defer></script>
+    
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <title>Vue.js - CT SimplePauseMenu</title>
+</head>
+<body>
+    <div id="app">
+        <div :class="['back', show ? 'fadeIn' : 'fadeOut']">
             <div class="logoback">
                 <div class="logo">
-                    <img src="https://adash.io/wp-content/uploads/2021/06/Your-Logo-here.png" draggable="false">
+                    <img :src="logo" draggable="false" alt="Logo">
                 </div>
             </div>
 
             <div class="textsback">
-                <span id="continue" style="animation-delay: .25s">Resume</span>
-                <span id="radar" style="animation-delay: .35s">Map</span>
-                <span id="settings" style="animation-delay: .45s">Settings</span>
-                <span id="exit" style="animation-delay: .55s">Exit FiveM</span>
+                <span v-for="(value, key) in buttons" :key="key">
+                    <span 
+                        :id="key" 
+                        :style="{ animationDelay: `${getDelayFromKey(key)}s` }"
+                        @mouseover="playHover" 
+                        @click="playClick(); sendAction(value.action)">
+                        <div class="icon-box" v-if="value.icon">
+                            <i :class="value.icon"></i>
+                        </div>
+                        <span>{{ value.text }}</span>
+                    </span>
+                </span>
             </div>
         </div>
-    </body>
-    <script src="script.js"></script>
+    </div>
+</body>
 </html>

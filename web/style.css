@@ -24,11 +24,11 @@ body {
 }
 
 .fadeIn {
-    animation: .75s fadeIn; 
+    animation: .75s fadeIn forwards; 
 }
 
 .fadeOut {
-    animation: .75s fadeOut; 
+    animation: .75s fadeOut forwards; 
 }
 
 .textsback {
@@ -49,6 +49,17 @@ body {
     text-shadow: 2.75px 2.75px 0 rgb(0, 0, 0), 0 0 5px rgba(0, 0, 0, 0.5);
     animation: .5s fadeInLeft forwards;
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: .5vw;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
+    width: 3.5rem;
 }
 
 .textsback span:hover {
