@@ -1,22 +1,18 @@
-fx_version 'adamant'
-game 'gta5'
-lua54 'yes'
-author 'Juliroo'
+-- Resource Metadata
+fx_version 'cerulean'
+games { 'rdr3', 'gta5' }
 
-shared_scripts {
-    '@ox_lib/init.lua',
-}
+author 'Juliroo && Jaareet'
+description 'FiveM Pause Menu'
+version '1.0.0'
+lua54 'yes'
+ui_page 'web/index.html'
 
 client_scripts {
-    'client.lua',
-}
-
-ui_page {
-    'web/index.html',
+    'config.lua',
+    'client.lua'
 }
 
 files {
-    'web/**',
+    'web/**'
 }
-
-dependency 'ox_lib'
