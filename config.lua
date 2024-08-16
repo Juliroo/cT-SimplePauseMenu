@@ -11,13 +11,13 @@ end
 Config = {
     Translations = {
         ['es'] = {
-            ['continue'] = 'Jugar',
+            ['continue'] = 'Continuar',
             ['radar'] = 'Mapa',
             ['settings'] = 'Ajustes',
             ['exit'] = 'Salir',
         },
         ['en'] = {
-            ['continue'] = 'Continue',
+            ['continue'] = 'Resume',
             ['radar'] = 'Map',
             ['settings'] = 'Settings',
             ['exit'] = 'Exit',
