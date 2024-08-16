@@ -87,3 +87,7 @@ CreateThread(function()
 
     nuiReady = true
 end)
+
+exports('isOpen', function()
+    return isOpened
+end)
