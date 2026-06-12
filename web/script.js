@@ -19,6 +19,7 @@ const app = Vue.createApp({
     data() {
         return {
             show: false,
+            hasClosed: false,
             logo: "",
             audios: {
                 appendSound: new Audio(
@@ -34,18 +35,18 @@ const app = Vue.createApp({
             buttons: {
                 continue: {
                     text: "Continue",
-                    icon: "fas fa-play",
+                    icon: "solar:play-bold",
                     action: "exit",
                 },
-                radar: { text: "Map", icon: "fas fa-map", action: "map" },
+                radar: { text: "Map", icon: "ic:round-map", action: "map" },
                 settings: {
                     text: "Settings",
-                    icon: "fas fa-cog",
+                    icon: "material-symbols:settings-rounded",
                     action: "settings",
                 },
                 exit: {
                     text: "Exit",
-                    icon: "fas fa-power-off",
+                    icon: "vaadin:exit-o",
                     action: "quit",
                 },
             },
@@ -53,11 +54,12 @@ const app = Vue.createApp({
     },
     methods: {
         getDelayFromKey(key) {
-            if (!this.buttons || !key) return 0;
-            return Object.keys(this.buttons).indexOf(key) * 0.1;
+            if (!this.buttons || !key) return 0.2;
+            return 0.2 + Object.keys(this.buttons).indexOf(key) * 0.08;
         },
         async sendAction(action) {
             this.show = false;
+            this.hasClosed = true;
             if (action !== "exit") this.sendAction("exit");
             if (action === "quit") {
                 window.invokeNative("quit", "you left the game");
@@ -92,12 +94,11 @@ const app = Vue.createApp({
         },
         closeEsc() {
             this.show = false;
+            this.hasClosed = true;
             this.sendAction("exit");
         },
     },
     mounted() {
-        this.show = !navigator.userAgent.includes("CitizenFX");
-
         this.audios.appendSound.volume = 0.35;
         this.audios.click.volume = 0.75;
         this.audios.hover.volume = 0.75;

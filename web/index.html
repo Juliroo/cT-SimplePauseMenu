@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script> 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
     <script src="script.js" defer></script>
-    
-    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <title>Vue.js - CT SimplePauseMenu</title>
+    <title>FiveM Pause Menu</title>
 </head>
 <body>
     <div id="app">
-        <div :class="['back', show ? 'fadeIn' : 'fadeOut']">
+        <div :class="['back', show ? 'fadeIn' : (hasClosed ? 'fadeOut' : 'menu-hidden')]">
             <div class="logoback">
                 <div class="logo">
                     <img :src="logo" draggable="false" alt="Logo">
@@ -25,14 +23,14 @@
             <div class="textsback">
                 <span v-for="(value, key) in buttons" :key="key">
                     <span 
-                        :id="key" 
+                        :id="key"
                         :style="{ animationDelay: `${getDelayFromKey(key)}s` }"
                         @mouseover="playHover" 
                         @click="playClick(); sendAction(value.action)">
                         <div class="icon-box" v-if="value.icon">
-                            <i :class="value.icon"></i>
+                            <iconify-icon :icon="value.icon"></iconify-icon>
                         </div>
-                        <span>{{ value.text }}</span>
+                        <span class="menu-label">{{ value.text }}</span>
                     </span>
                 </span>
             </div>
