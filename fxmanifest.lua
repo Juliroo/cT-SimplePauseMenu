@@ -2,7 +2,7 @@
 fx_version 'cerulean'
 games { 'rdr3', 'gta5' }
 
-author 'Juliroo && Jaareet'
+author 'Urantix'
 description 'FiveM Pause Menu'
 version '1.1.0'
 lua54 'yes'
